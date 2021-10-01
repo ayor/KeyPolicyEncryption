@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "DecryptFile";
+}
+@model KeyPolicyEncryption.Models.EncryptionParameters
+<div>
+    <form asp-action="Decrypt" method="post">
+        <h2>@ViewBag.timer</h2>
+        <input class="btn btn-outline-primary" id="filepath" type="file"  asp-for="filepath" />
+        @Html.Hidden("UserID", (object)ViewBag.UserID)
+        <button id="btn" type="submit" class="btn btn-primary">Decrypt File</button> <br /><br />
+    </form>
+    <label>File Content</label>
+    <div id="content">
+        <textarea class="form-control" cols="55" rows="10" readonly>@ViewBag.fileContent</textarea>
+    </div><br /><br />
+
+    <form asp-action="EncryptFile" method="post">
+        @if (ViewBag.ID == 2)
+        {
+            <button class="btn btn-outline-primary" type="submit">Process</button>
+
+        }
+    </form>
+</div>
+
+@*<div>
+    <form asp-action="Decrypt" method="post">
+        <input class="btn btn-outline-primary" id="filepath" type="file" asp-for="filepath" />
+        @Html.Hidden("UserID", (object)ViewBag.UserID)
+        <button id="btn" type="submit" class="btn btn-primary">Decrypt File</button> <br /><br />
+    </form>
+</div>*@
+

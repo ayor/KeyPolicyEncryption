@@ -1,0 +1,95 @@
+﻿@model KeyPolicyEncryption.Models.Register;
+
+<div class="text-center">
+    <div asp-validation-summary="All" class="alert-danger"></div>
+    <div class="alert-danger"> @ViewBag.Message</div>
+    <div class="row">
+        <div class="col col-6" id="reg">
+            <h5>Register User</h5>
+            <form asp-action="Register" method="post">
+
+                <div class="form-group">
+                    <label for="text">User Name</label><br />
+                    <input class="form-control" type="text" name="username" asp-for="Username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="text">Password</label><br />
+                    <input class="form-control" type="password" asp-for="Password" />
+                </div>
+                <hr />
+                <div class="attribute">
+                    <h6 class="text-left">Employee Type</h6>
+                    <div id="employeeType" class="d-flex justify-content-between">
+
+                        <label>
+                            Employee
+                            @Html.CheckBoxFor(model => model.EmployeeType.IsEmployee)
+                        </label>
+                        <label>
+                            Contractor
+                            @Html.CheckBoxFor(model => model.EmployeeType.IsContractor)
+                        </label>
+
+                        <label>
+                            Labor
+                            @Html.CheckBoxFor(model => model.EmployeeType.IsLabor)
+                        </label>
+
+                    </div>
+                    <hr />
+                </div>
+                <div class="attribute">
+                    <h6 class="text-left">Department</h6>
+                    <div id="employeeType" class="d-flex justify-content-between form-group">
+
+                        <label>
+                            HR
+                            @Html.CheckBoxFor(model => model.Department.IsHR)
+                        </label>
+                        <label>
+                            SCM
+                            @Html.CheckBoxFor(model => model.Department.IsSCM)
+                        </label>
+
+                        <label>
+                            IT
+                            @Html.CheckBoxFor(model => model.Department.IsIT)
+                        </label>
+                    </div>
+
+                </div>
+                <hr />
+                <div class="attribute">
+                    <h6 class="text-left">User Role</h6>
+                    <div id="employeeType" class="d-flex justify-content-between form-group">
+
+                        <label>
+                            Admin
+                            @Html.CheckBoxFor(model => model.UserRole.IsAdmin)
+                        </label>
+                        <label>
+                            DataOwner
+                            @Html.CheckBoxFor(model => model.UserRole.IsDataOwner)
+                        </label>
+
+                        <label>
+                            DataUser
+                            @Html.CheckBoxFor(model => model.UserRole.IsDataUser)
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline-success" type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    #reg {
+        margin: 10% auto;
+    }
+</style>
+

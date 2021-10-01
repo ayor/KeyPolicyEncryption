@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model KeyPolicyEncryption.Models.EncryptionParameters;
+
+<script type="text/javascript" src="~/js/jquery-3.3.1.min.js"></script>
+
+
+<div class="row">
+  
+    <div class="col col-8">
+        <h4>Choose File</h4>
+        <form asp-action="ViewContent" method="post">
+            <input class="btn btn-outline-primary" id="filepath" type="file" name="filePath" asp-for="filepath" />
+
+            @Html.Hidden("Department", (object)ViewBag.Department)
+            @Html.Hidden("EmployeeType", (object)ViewBag.EmployeeType)
+            @Html.Hidden("UserRole", (object)ViewBag.UserRole)
+            @Html.Hidden("UserID", (object)ViewBag.UserID)
+
+
+            <button id="btn" type="submit" class="btn btn-primary">View Content</button> <br /><br />
+        </form>
+
+        <label>File Content</label>
+        <div id="content">
+            <textarea class="form-control" cols="55" rows="10" readonly>@ViewBag.fileContent</textarea>
+        </div><br /><br />
+
+        <form asp-action="EncryptFile" method="post">
+            @Html.Hidden("UserID", (object)ViewBag.UserID)
+            @Html.Hidden("fileContent", (object)ViewBag.fileContent)
+            @Html.Hidden("filepath", (object)ViewBag.filepath)
+            @Html.Hidden("Department", (object)ViewBag.Department)
+            @Html.Hidden("EmployeeType", (object)ViewBag.EmployeeType)
+            @Html.Hidden("UserRole", (object)ViewBag.UserRole)
+            <button class="btn btn-outline-primary" type="submit">Process</button>
+        </form>
+    </div>
+
+
+</div>
+
+<style>
+    #content {
+        /*box-shadow: 2px 2px 2px #ccc;*/
+    }
+</style>
+
+
+@*<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>*@
+
+

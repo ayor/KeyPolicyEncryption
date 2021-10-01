@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+//Layout = null;
+}
+@model LoginModel;
+
+@if(ViewBag.messageID == 1)
+{
+    <div class="alert alert-warning " id="_warning"> @ViewBag.message</div>
+}
+
+
+
+<div class="row">
+    <div class="col col-6" id="log">
+        <form asp-action="Login" method="post">
+            <h5>Log In</h5>
+            <div class="form-group">
+                <label>User Name</label>
+                <input class="form-control" type="text" asp-for="Username" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password" asp-for="Password" />
+            </div>
+
+            <button class="btn btn-outline-dark" type="submit" asp-action="Login">Login</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    var wm = document.getElementById("_warning");
+    setTimeout(() => {
+        wm.style.display = "none";
+    }, 3000);
+</script>
+
+<style>
+</style>

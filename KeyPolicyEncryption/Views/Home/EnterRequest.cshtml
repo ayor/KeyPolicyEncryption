@@ -1,0 +1,33 @@
+﻿
+<div class="text-center">
+    @if (ViewBag.errMessageID == 1)
+    {
+        <div id="_warning" class="alert alert-warning">@ViewBag.errMessage</div>
+    }
+    <h5>Kindly select an Option</h5>
+    <div class="row my-5">
+        <div class="col col-6">
+            <a class="btn btn-outline-warning" asp-action="ChooseFile" asp-route-userid="@ViewBag.UserID">Click here to encrypt file</a>
+
+        </div>
+        <div class="col col-6">
+            <a class="btn btn-outline-danger" asp-action="DecryptFile" asp-route-id="@ViewBag.UserID">Click here to decrypt file</a>
+        </div>
+
+
+
+    </div>
+</div>
+
+<style>
+    #req{
+        margin: 10% auto;
+    }
+</style>
+
+<script>
+    var wm = document.getElementById("_warning");
+    setTimeout(() => {
+        wm.style.display = "none";
+    }, 3000);
+</script>
